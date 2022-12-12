@@ -1,1 +1,45 @@
-<p>input-box works!</p>
+<form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+  <mat-form-field class="full-width spacer" appearance="outline">
+    <mat-label>Write something...</mat-label>
+    <input
+      type="text"
+      formControlName="title"
+      autocomplete="off"
+      autocapitalize="off"
+      matInput
+    />
+    <button
+      *ngIf="formGroup.get('title')?.value"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      type="button"
+      (click)="formGroup.reset()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-hint> Write a task that you want to submit and save it </mat-hint>
+    <mat-error
+      *ngIf="hasError('title', 'required') || hasError('title', 'minlength')"
+      >This field is required.
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="spacer full-width" *ngIf="formGroup.valid">
+    <textarea
+      placeholder="Add description"
+      formControlName="description"
+      matInput
+    ></textarea>
+    <mat-hint *ngIf="formGroup.valid">
+      Now you can add a small description of the task (optional).
+    </mat-hint>
+  </mat-form-field>
+  <button
+    mat-stroked-button
+    type="submit"
+    class="full-width spacer"
+    [disabled]="formGroup.invalid"
+  >
+    Add task
+  </button>
+</form>

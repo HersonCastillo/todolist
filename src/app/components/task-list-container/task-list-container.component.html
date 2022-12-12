@@ -1,0 +1,15 @@
+<div class="list-container">
+  <h2>{{ title }}</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let task of list">
+      <mat-checkbox
+        matListItemAvatar
+        (change)="onCheckBoxChange($event, task)"
+        [checked]="task.isDone"
+      ></mat-checkbox>
+      <div matListItemTitle>{{ task.title }}</div>
+      <div matListItemLine *ngIf="task.description">{{ task.description }}</div>
+      <div matListItemMeta>{{ task.timestamp | date }}</div>
+    </mat-list-item>
+  </mat-list>
+</div>

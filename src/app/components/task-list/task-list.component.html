@@ -1,1 +1,15 @@
-<p>task-list works!</p>
+<ng-container *ngIf="filterByUnresolved.length">
+  <app-task-list-container
+    title="Unresolved Tasks"
+    [list]="filterByUnresolved"
+    (checkboxChange)="onCheckBoxChange($event)"
+  ></app-task-list-container>
+</ng-container>
+
+<ng-container *ngIf="filterByResolved.length">
+  <app-task-list-container
+    title="Resolved Tasks"
+    [list]="filterByResolved"
+    (checkboxChange)="onCheckBoxChange($event)"
+  ></app-task-list-container>
+</ng-container>
