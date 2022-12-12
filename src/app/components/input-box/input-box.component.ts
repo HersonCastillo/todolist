@@ -49,6 +49,6 @@ export class InputBoxComponent {
   }
 
   hasError(inputName: string, errorName: string): boolean {
-    return this.formGroup.get(inputName)?.hasError(errorName) ?? false;
+    return this.formGroup.get(inputName)!.hasError(errorName);
   }
 }
