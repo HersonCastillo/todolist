@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { InputBoxComponent } from './input-box.component';
 
@@ -8,7 +9,7 @@ describe('InputBoxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputBoxComponent],
+      imports: [InputBoxComponent, NoopAnimationsModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(InputBoxComponent);

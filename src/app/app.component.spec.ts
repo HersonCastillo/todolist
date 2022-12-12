@@ -1,15 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AppComponent, NoopAnimationsModule],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(AppComponent);
-    fixture.autoDetectChanges();
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it('should renders correctly', () => {
-    expect(fixture.componentInstance).toBeTruthy();
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
